@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import DividerDesktopComponent from "../assets/divider-desktop";
 import IconDiceComponent from "../assets/icon-dice";
-import Loader from "../assets/spinner";
+import LoaderComponent from "../assets/spinner";
 
 export default function Home({ adviceLoad }) {
   const [advice, setAdvice] = useState();
@@ -37,7 +37,7 @@ export default function Home({ adviceLoad }) {
           </h1>
           {loading ? (
             <div className="flex justify-center pb-8">
-              <Loader />
+              <LoaderComponent />
             </div>
           ) : (
             <p className="text-2xl text-primary-cyan mb-6">{`" ${
@@ -50,7 +50,7 @@ export default function Home({ adviceLoad }) {
           </div>
           <div
             onClick={handleClick}
-            className="absolute bg-primary-green rounded-full w-16 h-16 m-auto flex justify-center items-center left-[50%] -translate-x-[50%] transition duration-100 hover:scale-110 hover:shadow-md cursor-pointer"
+            className="absolute bg-primary-green rounded-full w-16 h-16 m-auto flex justify-center items-center left-[50%] -translate-x-[50%] transition duration-100 hover:scale-110 hover:shadow-md hover:shadow-primary-green cursor-pointer"
           >
             <IconDiceComponent />
           </div>
