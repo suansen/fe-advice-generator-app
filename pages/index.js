@@ -49,7 +49,7 @@ export default function Home({ adviceLoad }) {
           </div>
           <div
             onClick={handleClick}
-            className="absolute bg-primary-green rounded-full w-16 h-16 m-auto flex justify-center items-center left-[50%] -translate-x-[50%] transition duration-100 hover:scale-110 hover:shadow-md hover:shadow-primary-green cursor-pointer"
+            className="absolute bg-primary-green rounded-full w-16 h-16 m-auto flex justify-center items-center left-[50%] -translate-x-[50%] transition duration-100 hover:scale-110 hover:shadow-sm hover:shadow-primary-green cursor-pointer"
           >
             <IconDiceComponent />
           </div>
