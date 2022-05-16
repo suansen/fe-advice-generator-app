@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 import DividerDesktopComponent from "../assets/divider-desktop";
 import IconDiceComponent from "../assets/icon-dice";
-import LoaderComponent from "../assets/spinner";
 
 export default function Home({ adviceLoad }) {
   const [advice, setAdvice] = useState();
@@ -37,7 +36,7 @@ export default function Home({ adviceLoad }) {
           </h1>
           {loading ? (
             <div className="flex justify-center pb-8">
-              <LoaderComponent />
+              <div className="w-16 border-t-transparent h-16 border-4 border-primary-cyan border-solid rounded-full animate-spin"></div>
             </div>
           ) : (
             <p className="text-2xl text-primary-cyan mb-6">{`" ${
