@@ -9,21 +9,22 @@ export default function Home({ adviceLoad }) {
 
   const fetchAdvice = async () => {
     setLoading(true);
-    const res = await fetch("https://api.adviceslip.com/advice");
+    const res = await fetch(
+      "https://labs.bible.org/api/?passage=random&type=json"
+    );
     const data = await res.json();
-    setAdvice(data.slip);
+    setAdvice(data[0]);
     setLoading(false);
   };
 
   const handleClick = e => {
     e.preventDefault();
-
     fetchAdvice();
   };
 
   useEffect(() => {
     setLoading(true);
-    adviceLoad && setAdvice(adviceLoad.slip);
+    adviceLoad && setAdvice(adviceLoad[0]);
     setLoading(false);
   }, []);
 
@@ -32,7 +33,8 @@ export default function Home({ adviceLoad }) {
       <main className="relative h-screen w-screen bg-neutral-dark-blue flex justify-center items-center">
         <div className="mx-8 w-[640px] px-4 py-8 round-xl bg-neutral-dark-grayish-blue font-manrope rounded-xl  text-center">
           <h1 className="text-primary-green text-sm tracking-[0.3em] mb-6 uppercase">
-            ADVICE #{advice && advice.id}
+            VERSE #
+            {advice && `${advice.bookname} ${advice.chapter} : ${advice.verse}`}
           </h1>
           {loading ? (
             <div className="flex justify-center pb-8">
@@ -40,7 +42,7 @@ export default function Home({ adviceLoad }) {
             </div>
           ) : (
             <p className="text-2xl text-primary-cyan mb-6">{`" ${
-              advice && advice.advice
+              advice && advice.text
             } "`}</p>
           )}
 
@@ -63,7 +65,9 @@ export default function Home({ adviceLoad }) {
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch("https://api.adviceslip.com/advice");
+  const res = await fetch(
+    "https://labs.bible.org/api/?passage=random&type=json"
+  );
   const adviceLoad = await res.json();
   console.log(adviceLoad);
 
